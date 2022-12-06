@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PMML 
+	 version="4.3"
+	 xmlns="http://www.dmg.org/PMML-4_3"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://www.dmg.org/PMML-4_3 pmml-4-3.xsd">
+	<Header 
+		 copyright="Copyright (c) IBM Corp. 1989, 2017.">
+		<Application  name="IBM SPSS Statistics"  version="26.0.0.0" />
+	</Header>
+	<DataDictionary 
+		 numberOfFields="6">
+		<DataField 
+			 name="revenue"
+			 optype="continuous"
+			 dataType="double">
+			<Extension  extender="spss.com"  name="format"  value="5" />
+			<Extension  extender="spss.com"  name="width"  value="12" />
+			<Extension  extender="spss.com"  name="decimals"  value="4" />
+		</DataField>
+		<DataField 
+			 name="tv_S"
+			 optype="continuous"
+			 dataType="double">
+			<Extension  extender="spss.com"  name="format"  value="5" />
+			<Extension  extender="spss.com"  name="width"  value="9" />
+			<Extension  extender="spss.com"  name="decimals"  value="1" />
+		</DataField>
+		<DataField 
+			 name="ooh_S"
+			 optype="continuous"
+			 dataType="double">
+			<Extension  extender="spss.com"  name="format"  value="5" />
+			<Extension  extender="spss.com"  name="width"  value="6" />
+			<Extension  extender="spss.com"  name="decimals"  value="0" />
+		</DataField>
+		<DataField 
+			 name="print_S"
+			 optype="continuous"
+			 dataType="double">
+			<Extension  extender="spss.com"  name="format"  value="5" />
+			<Extension  extender="spss.com"  name="width"  value="12" />
+			<Extension  extender="spss.com"  name="decimals"  value="6" />
+		</DataField>
+		<DataField 
+			 name="search_S"
+			 optype="continuous"
+			 dataType="double">
+			<Extension  extender="spss.com"  name="format"  value="5" />
+			<Extension  extender="spss.com"  name="width"  value="6" />
+			<Extension  extender="spss.com"  name="decimals"  value="0" />
+		</DataField>
+		<DataField 
+			 name="facebook_S"
+			 optype="continuous"
+			 dataType="double">
+			<Extension  extender="spss.com"  name="format"  value="5" />
+			<Extension  extender="spss.com"  name="width"  value="14" />
+			<Extension  extender="spss.com"  name="decimals"  value="7" />
+		</DataField>
+	</DataDictionary>
+	<GeneralRegressionModel 
+		 targetVariableName="revenue"
+		 modelType="regression"
+		 functionName="regression">
+		<Extension  extender="spss.com"  name="numberParameters"  value="6" />
+		<Extension  extender="spss.com"  name="modelDF"  value="192" />
+		<MiningSchema >
+			<MiningField  name="revenue"  usageType="predicted" />
+			<MiningField  name="tv_S"  usageType="active" />
+			<MiningField  name="ooh_S"  usageType="active" />
+			<MiningField  name="print_S"  usageType="active" />
+			<MiningField  name="search_S"  usageType="active" />
+			<MiningField  name="facebook_S"  usageType="active" />
+		</MiningSchema>
+		<ParameterList >
+			<Parameter  name="(Constant)"  label="(Constant)" />
+			<Parameter  name="tv_S"  label="tv_S" />
+			<Parameter  name="ooh_S"  label="ooh_S" />
+			<Parameter  name="print_S"  label="print_S" />
+			<Parameter  name="search_S"  label="search_S" />
+			<Parameter  name="facebook_S"  label="facebook_S" />
+		</ParameterList>
+		<CovariateList >
+			<Predictor  name="tv_S" />
+			<Predictor  name="ooh_S" />
+			<Predictor  name="print_S" />
+			<Predictor  name="search_S" />
+			<Predictor  name="facebook_S" />
+		</CovariateList>
+		<PPMatrix >
+			<PPCell  value="1"  predictorName="tv_S"  parameterName="tv_S" />
+			<PPCell  value="1"  predictorName="ooh_S"  parameterName="ooh_S" />
+			<PPCell  value="1"  predictorName="print_S"  parameterName="print_S" />
+			<PPCell  value="1"  predictorName="search_S"  parameterName="search_S" />
+			<PPCell  value="1"  predictorName="facebook_S"  parameterName="facebook_S" />
+		</PPMatrix>
+		<PCovMatrix >
+			<PCovCell  pRow="(Constant)"  pCol="(Constant)"  value="5569758660.46769" />
+			<PCovCell  pRow="tv_S"  pCol="tv_S"  value="0.0344824518735615" />
+			<PCovCell  pRow="tv_S"  pCol="(Constant)"  value="-1118.56317928098" />
+			<PCovCell  pRow="ooh_S"  pCol="tv_S"  value="-0.00231511037296088" />
+			<PCovCell  pRow="ooh_S"  pCol="ooh_S"  value="0.0614652038860622" />
+			<PCovCell  pRow="ooh_S"  pCol="(Constant)"  value="-5543.06073620981" />
+			<PCovCell  pRow="print_S"  pCol="tv_S"  value="-0.00692152927911094" />
+			<PCovCell  pRow="print_S"  pCol="ooh_S"  value="-0.0292746238246006" />
+			<PCovCell  pRow="print_S"  pCol="print_S"  value="0.718523518887173" />
+			<PCovCell  pRow="print_S"  pCol="(Constant)"  value="-10214.7930696993" />
+			<PCovCell  pRow="search_S"  pCol="tv_S"  value="-0.037513752635899" />
+			<PCovCell  pRow="search_S"  pCol="ooh_S"  value="0.0216762237832348" />
+			<PCovCell  pRow="search_S"  pCol="print_S"  value="-0.0394475574485721" />
+			<PCovCell  pRow="search_S"  pCol="search_S"  value="1.50318074687428" />
+			<PCovCell  pRow="search_S"  pCol="(Constant)"  value="-60072.8550462671" />
+			<PCovCell  pRow="facebook_S"  pCol="tv_S"  value="-0.0130189550014058" />
+			<PCovCell  pRow="facebook_S"  pCol="ooh_S"  value="0.00823227169385357" />
+			<PCovCell  pRow="facebook_S"  pCol="print_S"  value="-0.0696711389114915" />
+			<PCovCell  pRow="facebook_S"  pCol="search_S"  value="0.0204323834676308" />
+			<PCovCell  pRow="facebook_S"  pCol="facebook_S"  value="0.200659794608046" />
+			<PCovCell  pRow="facebook_S"  pCol="(Constant)"  value="-10790.7726569472" />
+		</PCovMatrix>
+		<ParamMatrix >
+			<PCell  parameterName="(Constant)"  beta="1106991.81394696" />
+			<PCell  parameterName="tv_S"  beta="1.06558110606402" />
+			<PCell  parameterName="ooh_S"  beta="0.538312991612761" />
+			<PCell  parameterName="print_S"  beta="1.90709090688227" />
+			<PCell  parameterName="search_S"  beta="8.20892745913213" />
+			<PCell  parameterName="facebook_S"  beta="2.00998382689862" />
+		</ParamMatrix>
+	</GeneralRegressionModel>
+</PMML>
